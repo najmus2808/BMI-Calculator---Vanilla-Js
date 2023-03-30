@@ -6,14 +6,12 @@ const bmiResult = document.getElementById("bmiResult");
 
 // Calculate BMI function
 function calculateBMI() {
-  if (!weightInput.value || !heightInput.value) {
-    alert("Please enter valid values for weight and height.");
-    return;
-  }
+  if (!weightInput.value || weightInput.value <= 0) return alert("Enter a valid weight");
+  if (!heightInput.value || heightInput.value <= 0) return alert("Enter a valid height");
   const weight = Number(weightInput.value);
-  const height = Number(heightInput.value)
+  const height = Number(heightInput.value);
   const bmi = weight / (height * height);
-  bmiResult.textContent = `${bmi.toFixed(2)}`;
+  bmiResult.textContent = `Your BMI : ${bmi?.toFixed(2)}`;
 }
 
 // Add event listener to calculate button
